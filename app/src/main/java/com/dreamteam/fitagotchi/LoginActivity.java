@@ -104,7 +104,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         return mProgressView;
     }
 
-
+    private String email;
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -237,7 +237,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // Store values at the time of the login attempt.
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
-
+        this.email = email;
         boolean cancel = false;
         View focusView = null;
         if (!isNetworkAvailable()) {
@@ -312,6 +312,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     public void startHome()
     {
         Intent homeActivity = new Intent(this, HomeActivity.class);
+        homeActivity.putExtra("email",email);
         startActivity(homeActivity);
     }
     public void getBasicInformation(String email, String password) {

@@ -15,6 +15,7 @@ import android.view.MenuItem;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private String email;
     private ViewPager mPager;
     private PagerAdapter pagerAdapter;
     int[] bottomNavElements = new int[4];
@@ -49,7 +50,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_activity);
-
+        email = getIntent().getStringExtra("email");
         bottomNavElements[0] = R.id.nav_profile;
         bottomNavElements[1] = R.id.nav_msg;
         bottomNavElements[2] = R.id.nav_quest;
@@ -57,7 +58,7 @@ public class HomeActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         mPager = findViewById(R.id.pager);
-        pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+        pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager(), email);
         mPager.setAdapter(pagerAdapter);
         mPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             public void onPageScrollStateChanged(int state) {
