@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.Task;
@@ -31,6 +32,8 @@ public class ProfileInformationActivity extends AppCompatActivity {
                 String age = ((TextView) findViewById(R.id.edit_age)).getText().toString();
                 String height = ((TextView) findViewById(R.id.edit_height)).getText().toString();
                 String weight = ((TextView) findViewById(R.id.edit_weight)).getText().toString();
+                String gender = ((Spinner)findViewById(R.id.gender_Spinner)).getSelectedItem().toString();
+                String activityLevel = ((Spinner)findViewById(R.id.spinner)).getSelectedItem().toString();
                 String email = getIntent().getStringExtra("email");
                 String password = getIntent().getStringExtra("password");
 
@@ -44,6 +47,8 @@ public class ProfileInformationActivity extends AppCompatActivity {
                 data.put("age", age);
                 data.put("height", height);
                 data.put("weight", weight);
+                data.put("gender", gender);
+                data.put("activityLevel", activityLevel);
                 db.set(data);
 
 

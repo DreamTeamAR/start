@@ -105,7 +105,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     }
 
 
-
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -310,8 +309,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 // a primary email address if the user hasn't specified one.
                 ContactsContract.Contacts.Data.IS_PRIMARY + " DESC");
     }
-    public void getBasicInformation(String email, String password)
+    public void startHome()
     {
+        Intent homeActivity = new Intent(this, HomeActivity.class);
+        startActivity(homeActivity);
+    }
+    public void getBasicInformation(String email, String password) {
         Intent profileInformation = new Intent(this, ProfileInformationActivity.class);
         profileInformation.putExtra("email", email);
         profileInformation.putExtra("password,", password);
@@ -329,7 +332,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
 
         addEmailsToAutoComplete(emails);
+
     }
+
 
     @Override
     public void onLoaderReset(Loader<Cursor> cursorLoader) {
@@ -360,77 +365,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
-    /*
-    public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
-
-        private final String mEmail;
-        private final String mPassword;
-
-        UserLoginTask(String email, String password) {
-            mEmail = email;
-            mPassword = password;
-        }
-
-        @Override
-        protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
-
-            try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
-            }
-
-            FirebaseApp.initializeApp(getApplicationContext());
-            Task<QuerySnapshot> future =
-                    FirebaseFirestore.getInstance().collection("users").whereEqualTo("email", mEmail).get();
-            while (!future.isComplete()) ;
-            byte[] salt = new byte[64];
-            for (byte i = 0; i < 64; i++) {
-                salt[i] = i;
-            }
-            List<DocumentSnapshot> documents = future.getResult().getDocuments();
-            for (DocumentSnapshot document : documents) {
-                Log.d("TEST", document.getId() + " => " + document.toObject(LoginData.class));
-                LoginData data = document.toObject(LoginData.class);
-                if (data.getPassword() == (mPassword.hashCode())) return true;
-                else
-                    return false;
-            }
-            DocumentReference db = FirebaseFirestore.getInstance().collection("users").document(mEmail);
-
-            Map<String, Object> data = new HashMap<>();
-            data.put("email", mEmail);
-
-            data.put("password", mPassword.hashCode());
-//asynchronously write data
-            db.set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void aVoid) {
-                    Log.d("LoL", "Document has been saved!");
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Log.d("LoL", "Failure!");
-                }
-            });
-// ...
-// result.get() blocks on response
-
-
-            return true;
-        }
-
-
-
-
-
-
-
-
-    */
 
 
     private boolean isNetworkAvailable() {
@@ -440,18 +374,4 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    public static byte[] hashPassword(final char[] password, final byte[] salt, final int iterations, final int keyLength) {
-
-        try {
-            SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-            PBEKeySpec spec = new PBEKeySpec(password, salt, iterations, keyLength);
-            SecretKey key = skf.generateSecret(spec);
-            byte[] res = key.getEncoded();
-            return res;
-
-        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }
-

@@ -31,7 +31,7 @@ public class UserSignInTask extends UserTask {
         List<DocumentSnapshot> documents = future.getResult().getDocuments();
         for (DocumentSnapshot document : documents) {
             LoginData data = document.toObject(LoginData.class);
-            if (data.getPassword() == (mPassword.hashCode())) return true;
+            if (data.getPassword() == (mPassword.hashCode())){ mActivity.startHome();return true;}
             else
                 return false;
 

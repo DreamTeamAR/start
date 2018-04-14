@@ -27,7 +27,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".ProfileInformationActivity" />
-        <activity android:name=".Home_activity"></activity>
+        <activity android:name=".HomeActivity"></activity>
     </application>
 
 </manifest>

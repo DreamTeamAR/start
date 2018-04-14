@@ -24,4 +24,15 @@
     <string name="height">Height</string>
     <string name="weight">Weight</string>
     <string name="edit_profile_confirm">Confirm</string>
+
+    <string name="title_profile">Profile</string>
+    <string name="title_pet">Pet</string>
+    <string name="title_excerices">Excerices</string>
+    <string name="title_shop">Shop</string>
+    <string name="profile_BMI">BMI</string>
+    <string name="profile_activity_level">Activity Level</string>
+    <string name="profile_BMR">BMR</string>
+    <string name="profile_gender">Gender</string>
+
+
 </resources>
