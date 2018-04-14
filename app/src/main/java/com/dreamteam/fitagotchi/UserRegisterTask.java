@@ -39,6 +39,7 @@ public class UserRegisterTask extends UserTask {
             return false;
 
         }
+        mActivity.getBasicInformation(mEmail, mPassword);
         DocumentReference db = FirebaseFirestore.getInstance().collection("users").document(mEmail);
 
         Map<String, Object> data = new HashMap<>();

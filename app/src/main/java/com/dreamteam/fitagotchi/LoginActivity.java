@@ -5,6 +5,7 @@ import android.annotation.TargetApi;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Context;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -308,6 +309,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 // Show primary email addresses first. Note that there won't be
                 // a primary email address if the user hasn't specified one.
                 ContactsContract.Contacts.Data.IS_PRIMARY + " DESC");
+    }
+    public void getBasicInformation(String email, String password)
+    {
+        Intent profileInformation = new Intent(this, ProfileInformationActivity.class);
+        profileInformation.putExtra("email", email);
+        profileInformation.putExtra("password,", password);
+        startActivity(profileInformation);
+
     }
 
     @Override
