@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "884822744342",
+    "firebase_url": "https://fitagotchi.firebaseio.com",
+    "project_id": "fitagotchi",
+    "storage_bucket": "fitagotchi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884822744342:android:1e6207d89d2783ad",
+        "android_client_info": {
+          "package_name": "com.dreamteam.fitagotchi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884822744342-cvkgg6r5kooh8o9eq6u5oo0715u1ord7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMf846Q3aPGG0P6to_esJRyCofJx6p3qE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
