@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.Task;
@@ -40,6 +41,7 @@ public class ProfileFragment extends Fragment {
         height = model.getHeight();
         weight = model.getWeight();
 
+
     }
 
 
@@ -71,7 +73,13 @@ public class ProfileFragment extends Fragment {
         BMR = BMR *100;
         BMR = (BMR.intValue())/100.0;
         ((TextView)rootView.findViewById(R.id.user_bmr)).setText(BMR.toString());
+        Button editButton = rootView.findViewById(R.id.editButton);
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+            }
+        });
         return rootView;
     }
 }

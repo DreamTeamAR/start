@@ -34,6 +34,8 @@
     <string name="profile_BMR">BMR</string>
     <string name="profile_gender">Gender</string>
     <string name="pet_title">Pet</string>
+    <string name="text_excercises">Excercises For Today</string>
+    <string name="Edit">Edit</string>
 
 
 </resources>

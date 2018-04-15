@@ -11,17 +11,29 @@ class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
         super(fm);
         this.email = email;
     }
-
+    ProfileFragment pf = null;
+    ExcerciseFragment ef = null;
     @Override
     public Fragment getItem(int position) {
         if(position == 0)
         {
-            ProfileFragment temp = new ProfileFragment();
-            temp.setProfileFragment(email);
-            return temp;
+            if(pf == null) {
+                pf = new ProfileFragment();
+                pf.setProfileFragment(email);
+            }
+            return pf;
         }
-        else
+        else if(position == 1)
         {
+            return new PetFragment();
+        }
+        else if (position ==2)
+        {
+            if(ef == null)
+                ef = new ExcerciseFragment();
+            return ef;
+        }
+        else {
             return new PetFragment();
         }
 
