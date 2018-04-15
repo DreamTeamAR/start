@@ -14,9 +14,17 @@ class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        ProfileFragment temp = new ProfileFragment();
-        temp.setProfileFragment(email);
-        return temp;
+        if(position == 0)
+        {
+            ProfileFragment temp = new ProfileFragment();
+            temp.setProfileFragment(email);
+            return temp;
+        }
+        else
+        {
+            return new PetFragment();
+        }
+
     }
 
     @Override
